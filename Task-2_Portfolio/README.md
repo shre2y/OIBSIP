@@ -12,6 +12,5 @@ This is a **personal portfolio website** built using **HTML and CSS** as part of
 ## Technologies Used
 - HTML  
 - CSS  
-- GitHub for version control  
+- GitHub for version control
 
-## Project Folder
