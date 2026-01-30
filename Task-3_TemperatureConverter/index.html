@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <p class="subtitle">Convert between Celsius, Fahrenheit & Kelvin</p>
+
+        <input 
+            type="number" 
+            id="temperatureInput" 
+            placeholder="Enter temperature"
+        >
+
+        <select id="unitSelect">
+            <option value="celsius">Celsius (°C)</option>
+            <option value="fahrenheit">Fahrenheit (°F)</option>
+            <option value="kelvin">Kelvin (K)</option>
+        </select>
+
+        <button onclick="convertTemperature()">Convert</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const tempInput = document.getElementById("temperatureInput").value;
+            const unit = document.getElementById("unitSelect").value;
+            const resultDiv = document.getElementById("result");
+
+            if (tempInput === "") {
+                resultDiv.innerHTML = "⚠️ Please enter a temperature value.";
+                return;
+            }
+
+            const temp = parseFloat(tempInput);
+            let resultText = "";
+
+            if (unit === "celsius") {
+                const f = (temp * 9/5) + 32;
+                const k = temp + 273.15;
+                resultText = `${f.toFixed(2)} °F | ${k.toFixed(2)} K`;
+            } 
+            else if (unit === "fahrenheit") {
+                const c = (temp - 32) * 5/9;
+                const k = c + 273.15;
+                resultText = `${c.toFixed(2)} °C | ${k.toFixed(2)} K`;
+            } 
+            else if (unit === "kelvin") {
+                const c = temp - 273.15;
+                const f = (c * 9/5) + 32;
+                resultText = `${c.toFixed(2)} °C | ${f.toFixed(2)} °F`;
+            }
+
+            resultDiv.innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>
