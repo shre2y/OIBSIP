@@ -17,4 +17,3 @@ This project is a **temperature converter website** built using **HTML, CSS, and
 - JavaScript
 - GitHub for version control
 
-## Project Structure
